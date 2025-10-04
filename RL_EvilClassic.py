@@ -1,4 +1,5 @@
 import random
+import matplotlib
 import matplotlib.pyplot as plt
 def play_monty_hall(action, mode="classic"):
     # Randomly place the car
@@ -64,23 +65,28 @@ def q_learning_monty(episodes=10000, mode="classic"):
     return Q, win_rates
 
 
-#run simulations
+matplotlib.use('Agg')  # non-interactive backend
+# run simulations
 Q_classic, wr_classic = q_learning_monty(5000, mode="classic")
 Q_evil, wr_evil = q_learning_monty(5000, mode="evil")
 
-#print results
+# print results
 print("Classic Monty Q-values:", Q_classic)
 print("Evil Monty Q-values:", Q_evil)
 
 
-#plot results
+plt.figure(figsize=(8, 5))
 plt.plot(wr_classic, label="Classic Monty")
 plt.plot(wr_evil, label="Evil Monty")
 plt.xlabel("Episodes (x100)")
 plt.ylabel("Win rate")
+plt.title("Win Rate over Episodes")
 plt.legend()
-plt.show()
+plt.tight_layout()
 
+# save the plot to file instead of showing it
+plt.savefig("monty_winrate.png")
+print("Plot saved as monty_winrate.png")
 
 
 #Results:
