@@ -12,6 +12,26 @@ The Monty Hall problem is a probability puzzle where a contestant chooses one of
 
 Beyond classical analysis, this project uses reinforcement learning to allow an agent to discover strategies through repeated play. We explore adversarial variants with hosts behaving strategically (Evil, Angelic) or deterministically/randomly (Lazy, Ignorant). Using Q-learning with an ϵ-greedy policy, the agent learns to maximize rewards, providing insight into learning under varied probabilistic and adversarial conditions.
 
+## Running the Streamlit Interface
+
+This project includes a Streamlit interface to visualize the agent's learning and gameplay.
+
+### Steps to Run
+
+1. **Navigate to the project directory** in your terminal.
+
+2. **Install dependencies** if they are not already installed:  
+pip install -r requirements.txt
+
+3. **Run the Streamlit app**  
+streamlit run app.py
+
+4. **Use the Interface**
+- Select a host variant (Classic, Evil, Lazy, Angelic, Ignorant)
+- Observe the agent’s Q-values, win rates, and decisions
+- Optionally adjust training parameters, such as number of episodes or exploration rate
+
+
 ## Q-Learning Methodology
 Q-learning is a model-free, value-based reinforcement learning algorithm that estimates the expected cumulative reward of taking an action **a** in a state **s** and following the optimal policy thereafter. Q-values are updated iteratively using the Bellman equation:
 
